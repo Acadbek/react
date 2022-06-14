@@ -1,5 +1,6 @@
 import './App.css';
 
+import Loader from './Loader';
 import axios from 'axios';
 import News from './News';
 
@@ -14,8 +15,10 @@ getUser()
 
 const name = true
 
-function App() {
-  return (
+function App(props) {
+  return props.isLoading ? (
+    <Loader/>
+  ):(
     <div>
       <News name={name ? 'asadbek': 'john'} extra={2022} text={'Asadbek Nosirjonov'} header={'BigJOB'} img={'https://reqres.in/img/faces/7-image.jpg'}>
         Extra info
