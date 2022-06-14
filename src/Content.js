@@ -8,15 +8,9 @@ class App extends Component {
   }
 
   someFunc = (e) => {
-    if (e.target.id === 'incre') {
-      this.setState({ count: this.state.count + 1 })
-    }
-    else if (e.target.id === 'zero') {
-      this.setState({ count: this.state.count = 0 })
-    }
-    else {
-      this.setState({ count: this.state.count - 1 })
-    }
+    e.target.id === 'incre' ? this.setState({ count: this.state.count + 1 })
+      : e.target.id === 'zero' ? this.setState({ count: this.state.count = 0 })
+        : this.setState({ count: this.state.count - 1 })
   }
   render() {
     return (
