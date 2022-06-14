@@ -6,9 +6,9 @@ function viewConsole() {
 }
 
 const Input = () => {
-  return(
+  return (
     <div className='input'>
-      <input type="text"/>
+      <input type="text" />
       <button type='submit' onClick={viewConsole}>CLICK</button>
     </div>
   )

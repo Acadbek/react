@@ -8,14 +8,14 @@ class App extends Component {
   }
 
   someFunc = (e) => {
-    if(e.target.id === 'incre') {
-      this.setState({count: this.state.count + 1})
+    if (e.target.id === 'incre') {
+      this.setState({ count: this.state.count + 1 })
     }
-    else if(e.target.id === 'zero') {
-      this.setState({count: this.state.count = 0})
+    else if (e.target.id === 'zero') {
+      this.setState({ count: this.state.count = 0 })
     }
-    else{
-      this.setState({count: this.state.count - 1})
+    else {
+      this.setState({ count: this.state.count - 1 })
     }
   }
   render() {
@@ -24,7 +24,7 @@ class App extends Component {
         <button id="incre" onClick={this.someFunc}> + </button>
         <h1>{this.state.count}</h1>
         <button onClick={this.someFunc}> - </button>
-        <br/><br/><br/><br/>
+        <br /><br /><br /><br />
         <button id="zero" onClick={this.someFunc}>0</button>
       </div>
     )
