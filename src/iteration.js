@@ -9,7 +9,7 @@ class Iteration extends Component{
       <div>
         <div>
           {this.state.users.map(user => (
-            <h1>{user}</h1>
+            <h1 key={user}>{user}</h1>
           ))}
         </div>
       </div>
