@@ -2,7 +2,7 @@ import './App.css';
 import Loader from './Loader';
 import Input from './Input';
 import Content from './Content';
-
+import LifeCycleHooks from './LifeCycleHooks'
 
 function App(props) {
   return props.isLoading ? (
@@ -10,6 +10,7 @@ function App(props) {
   ):(
    <div>
     <Content text={'askjdaskjdaksjdkj'}/>
+    <LifeCycleHooks/>
    </div>
   );
 }
