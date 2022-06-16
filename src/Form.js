@@ -3,7 +3,7 @@ import React from "react";
 export default class Form extends React.Component {
 	state = {
 		firstName: '',
-		email: null,
+		email: 'asd',
 		message: '',
 		select: '',
 		subscribe: false
@@ -14,7 +14,8 @@ export default class Form extends React.Component {
 	}
 	checkboxHandler = (e) => {
 		let value = e.target.checked === true ?
-			localStorage.setItem('name', this.state.firstName) 	: ''
+			[localStorage.setItem('subscribe', this.state.subscribe = true),
+			localStorage.setItem('email', this.state.email)] : ''
 		this.setState({ [e.target.name]: value })
 	}
 
@@ -30,11 +31,20 @@ export default class Form extends React.Component {
 		this.setState({ firstName: localStorage.getItem('name') })
 		this.setState({ email: localStorage.getItem('email') })
 	}
-
+	// ||
 	send = () => {
-		if(this.state.email !== null && this.state.subscribe){
+		const { email, subscribe } = this.state
+		if (!email) {
+			alert('email ni toldirmaysanmi')
+		}
+		else if (!subscribe) {
+			alert('checkbox')
+		}
+		else if (!subscribe && !email) {
+			alert('malumotlarni toldir')
+		}
+		else {
 			alert('welcome')
-			console.log('send')
 		}
 	}
 
@@ -51,7 +61,7 @@ export default class Form extends React.Component {
 					onBlur={this.validateName}
 				/> */}
 				<input
-					placeholder="First Name"
+					placeholder="Email"
 					value={email}
 					type="text"
 					name="email"
