@@ -3,7 +3,7 @@ import React from "react";
 export default class Form extends React.Component {
 	state = {
 		firstName: '',
-		email: 'asd',
+		email: '',
 		message: '',
 		select: '',
 		subscribe: false
@@ -28,8 +28,8 @@ export default class Form extends React.Component {
 
 	componentDidMount() {
 		console.log('mount')
-		this.setState({ firstName: localStorage.getItem('name') })
 		this.setState({ email: localStorage.getItem('email') })
+		this.setState({ subscribe: localStorage.getItem('subscribe') })
 	}
 	// ||
 	send = () => {

@@ -6,6 +6,7 @@ import LifeCycleHooks from './LifeCycleHooks'
 import Iteration from './iteration';
 import Post from './Post';
 import Form from './Form';
+import Calc from './IncreDecre';
 
 function App(props) {
   const handle = () => {
@@ -19,7 +20,8 @@ function App(props) {
     {/* <LifeCycleHooks/> */}
     {/* <Iteration/> */}
     {/* <Post callBack={handle}/> */}
-    <Form/>
+    {/* <Form/> */}
+    <Calc/>
    </div>
   );
 }
