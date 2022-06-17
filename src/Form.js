@@ -10,12 +10,16 @@ export default class Form extends React.Component {
 		}
 		this.cardRef = React.createRef();
 		this.cvRef = React.createRef();
+		this.nameRef = React.createRef();
 	}
 	changeHandler = (e) => {
 		let value = e.target.value
 		this.setState({ [e.target.name]: value }, () => {
 			if (this.state.card.length >= 16) {
 				this.cvRef.current.focus()
+			}
+			if (this.state.cv.length >= 3) {
+				this.nameRef.current.focus()
 			}
 		})
 	}
@@ -55,7 +59,7 @@ export default class Form extends React.Component {
 	// }
 
 	render() {
-		const { card, cv } = this.state
+		const { card, cv, name } = this.state
 		return (
 			<div>
 				{/* <input
@@ -82,6 +86,14 @@ export default class Form extends React.Component {
 					name="cv"
 					onChange={this.changeHandler}
 					ref={this.cvRef}
+				/>
+				<input
+					placeholder="Email"
+					value={name}
+					type="text"
+					name="name"
+					onChange={this.changeHandler}
+					ref={this.nameRef}
 				/>
 				{/* <select name="select" value={select} onChange={this.changeHandler}>
 					<option disabled></option>

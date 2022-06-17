@@ -7,6 +7,7 @@ import Iteration from './iteration';
 import Post from './Post';
 import Form from './Form';
 import Calc from './IncreDecre';
+import UnControllableForm from './UnControllableForm';
 
 function App(props) {
   const handle = () => {
@@ -20,7 +21,8 @@ function App(props) {
     {/* <LifeCycleHooks/> */}
     {/* <Iteration/> */}
     {/* <Post callBack={handle}/> */}
-    <Form/>
+    {/* <Form/> */}
+    <UnControllableForm/>
     {/* <Calc/> */}
    </div>
   );
