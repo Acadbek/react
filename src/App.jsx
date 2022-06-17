@@ -20,8 +20,8 @@ function App(props) {
     {/* <LifeCycleHooks/> */}
     {/* <Iteration/> */}
     {/* <Post callBack={handle}/> */}
-    {/* <Form/> */}
-    <Calc/>
+    <Form/>
+    {/* <Calc/> */}
    </div>
   );
 }

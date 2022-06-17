@@ -1,16 +1,23 @@
 import React from "react";
 
 export default class Form extends React.Component {
-	state = {
-		firstName: '',
-		email: '',
-		message: '',
-		select: '',
-		subscribe: false
+	constructor() {
+		super()
+		this.state = {
+			card: '',
+			cv: '',
+			name: ''
+		}
+		this.cardRef = React.createRef();
+		this.cvRef = React.createRef();
 	}
 	changeHandler = (e) => {
 		let value = e.target.value
-		this.setState({ [e.target.name]: value })
+		this.setState({ [e.target.name]: value }, () => {
+			if (this.state.card.length >= 16) {
+				this.cvRef.current.focus()
+			}
+		})
 	}
 	checkboxHandler = (e) => {
 		let value = e.target.checked === true ?
@@ -19,37 +26,36 @@ export default class Form extends React.Component {
 		this.setState({ [e.target.name]: value })
 	}
 
-	emailIsValid = () => {
-		const re = /\S+@\S+\.\S+/
-		if (!re.test(this.state.email)) {
-			alert('email togri kirit')
-		}
-	}
+	// emailIsValid = () => {
+	// 	const re = /\S+@\S+\.\S+/
+	// 	if (!re.test(this.state.email)) {
+	// 		alert('email togri kirit')
+	// 	}
+	// }
 
 	componentDidMount() {
 		console.log('mount')
-		this.setState({ email: localStorage.getItem('email') })
-		this.setState({ subscribe: localStorage.getItem('subscribe') })
+		this.cardRef.current.focus()
 	}
 	// ||
-	send = () => {
-		const { email, subscribe } = this.state
-		if (!email) {
-			alert('email ni toldirmaysanmi')
-		}
-		else if (!subscribe) {
-			alert('checkbox')
-		}
-		else if (!subscribe && !email) {
-			alert('malumotlarni toldir')
-		}
-		else {
-			alert('welcome')
-		}
-	}
+	// send = () => {
+	// 	const { email, subscribe } = this.state
+	// 	if (!email) {
+	// 		alert('email ni toldirmaysanmi')
+	// 	}
+	// 	else if (!subscribe) {
+	// 		alert('checkbox')
+	// 	}
+	// 	else if (!subscribe && !email) {
+	// 		alert('malumotlarni toldir')
+	// 	}
+	// 	else {
+	// 		alert('welcome')
+	// 	}
+	// }
 
 	render() {
-		const { email, subscribe } = this.state
+		const { card, cv } = this.state
 		return (
 			<div>
 				{/* <input
@@ -62,11 +68,20 @@ export default class Form extends React.Component {
 				/> */}
 				<input
 					placeholder="Email"
-					value={email}
+					value={card}
 					type="text"
-					name="email"
+					name="card"
 					onChange={this.changeHandler}
-					onBlur={this.emailIsValid}
+					// onBlur={this.emailIsValid}
+					ref={this.cardRef}
+				/>
+				<input
+					placeholder="Email"
+					value={cv}
+					type="text"
+					name="cv"
+					onChange={this.changeHandler}
+					ref={this.cvRef}
 				/>
 				{/* <select name="select" value={select} onChange={this.changeHandler}>
 					<option disabled></option>
@@ -75,8 +90,8 @@ export default class Form extends React.Component {
 					<option value='4'>4</option>
 				</select> */}
 				<p>Are you agree our rules?</p>
-				<input name='subscribe' type='checkbox' checked={subscribe} onChange={this.checkboxHandler}></input>
-				<button onClick={this.send}>Send</button>
+				{/* <input name='subscribe' type='checkbox' checked={subscribe} onChange={this.checkboxHandler}></input> */}
+				{/* <button onClick={this.send}>Send</button> */}
 			</div>
 		)
 	}
